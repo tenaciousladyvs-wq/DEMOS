@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prestige Plumbing, Heating &amp; Cooling — North Aurora, IL</title>
+<style>
+  :root {
+    --navy: #14253d;
+    --navy-deep: #0d1928;
+    --copper: #c8743a;
+    --copper-light: #e0935a;
+    --cream: #f6f2ea;
+    --ink: #1c2733;
+    --muted: #5c6670;
+    --line: #e3ddd2;
+    --star: #e8a83a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.6;
+  }
+  h1, h2, h3 { font-family: Georgia, 'Times New Roman', serif; line-height: 1.15; letter-spacing: -0.01em; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--navy-deep);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 28px;
+  }
+  .brand { color: #fff; font-family: Georgia, serif; font-size: 1.25rem; font-weight: bold; letter-spacing: 0.5px; }
+  .brand span { color: var(--copper-light); }
+  .nav-links { display: flex; gap: 26px; align-items: center; }
+  .nav-links a { color: #d6dce4; text-decoration: none; font-size: 0.92rem; }
+  .nav-links a:hover { color: #fff; }
+  .nav-call { background: var(--copper); color: #fff !important; padding: 9px 18px; border-radius: 6px; font-weight: 600; }
+  .nav-call:hover { background: var(--copper-light); }
+
+  /* HERO */
+  header {
+    background: linear-gradient(rgba(13,25,40,0.92), rgba(13,25,40,0.92)),
+                radial-gradient(circle at 80% 20%, #1f3a5c 0%, #0d1928 60%);
+    color: #fff;
+    padding: 90px 28px 80px;
+    text-align: center;
+  }
+  .eyebrow {
+    text-transform: uppercase; letter-spacing: 3px; font-size: 0.78rem;
+    color: var(--copper-light); font-weight: 600; margin-bottom: 18px;
+  }
+  header h1 { font-size: 3rem; margin-bottom: 18px; max-width: 16ch; margin-left: auto; margin-right: auto; }
+  header p.sub { font-size: 1.2rem; color: #c4cdd8; max-width: 56ch; margin: 0 auto 14px; }
+  .rating-line { display: inline-flex; align-items: center; gap: 10px; margin: 22px 0 30px; font-size: 1.05rem; color: #e7ecf2; }
+  .rating-line .stars { color: var(--star); letter-spacing: 2px; font-size: 1.15rem; }
+  .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--copper); color: #fff; text-decoration: none;
+    padding: 16px 32px; border-radius: 8px; font-weight: 700; font-size: 1.05rem;
+    display: inline-block; transition: transform .15s, background .15s;
+  }
+  .btn-primary:hover { background: var(--copper-light); transform: translateY(-2px); }
+  .btn-ghost {
+    background: transparent; color: #fff; text-decoration: none;
+    padding: 16px 32px; border-radius: 8px; font-weight: 600; font-size: 1.05rem;
+    border: 1.5px solid rgba(255,255,255,0.4); display: inline-block;
+  }
+  .btn-ghost:hover { border-color: #fff; }
+
+  /* TRUST STRIP */
+  .trust {
+    background: var(--navy); color: #cfd8e2;
+    display: flex; justify-content: center; gap: 50px; flex-wrap: wrap;
+    padding: 22px 28px; font-size: 0.95rem; text-align: center;
+  }
+  .trust strong { color: #fff; display: block; font-size: 1.5rem; font-family: Georgia, serif; }
+
+  /* SECTIONS */
+  section { padding: 72px 28px; }
+  .wrap { max-width: 1040px; margin: 0 auto; }
+  .section-eyebrow { text-transform: uppercase; letter-spacing: 2.5px; font-size: 0.75rem; color: var(--copper); font-weight: 700; margin-bottom: 12px; }
+  h2 { font-size: 2.2rem; margin-bottom: 16px; color: var(--navy); }
+  .lead { font-size: 1.1rem; color: #44505c; max-width: 64ch; margin-bottom: 10px; }
+
+  /* STORY */
+  #story { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .story-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: center; }
+  .story-card {
+    background: var(--cream); border: 1px solid var(--line); border-radius: 12px;
+    padding: 30px; border-left: 5px solid var(--copper);
+  }
+  .story-card h3 { color: var(--navy); font-size: 1.3rem; margin-bottom: 10px; }
+  .story-card p { color: #4d5862; font-size: 1.02rem; }
+
+  /* SERVICES */
+  .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 36px; }
+  .svc {
+    background: #fff; border: 1px solid var(--line); border-radius: 12px;
+    padding: 26px; transition: transform .15s, box-shadow .15s;
+  }
+  .svc:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(20,37,61,0.10); }
+  .svc .icon { width: 44px; height: 44px; border-radius: 10px; background: var(--navy); color: var(--copper-light);
+    display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 16px; }
+  .svc h3 { font-size: 1.15rem; color: var(--navy); margin-bottom: 8px; }
+  .svc p { color: #5c6670; font-size: 0.96rem; }
+
+  /* REVIEWS */
+  #reviews { background: var(--navy-deep); color: #fff; }
+  #reviews h2 { color: #fff; }
+  #reviews .lead { color: #b9c3cf; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-top: 38px; }
+  .review-card {
+    background: #18293f; border: 1px solid #25405c; border-radius: 12px; padding: 26px;
+  }
+  .review-card .stars { color: var(--star); letter-spacing: 2px; font-size: 1.05rem; }
+  .review-card p { color: #dde4ec; margin: 12px 0 18px; font-size: 1rem; font-style: italic; }
+  .reviewer { display: flex; align-items: center; gap: 12px; }
+  .avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--copper);
+    color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem; }
+  .reviewer .name { font-weight: 600; color: #fff; font-size: 0.95rem; }
+  .reviewer .meta { color: #8d9aab; font-size: 0.82rem; }
+
+  /* CTA */
+  #contact { background: var(--copper); }
+  .cta { text-align: center; max-width: 60ch; margin: 0 auto; color: #fff; }
+  .cta h2 { color: #fff; font-size: 2.4rem; margin-bottom: 14px; }
+  .cta p { font-size: 1.12rem; margin-bottom: 28px; color: #fff5ee; }
+  .cta .btn-primary { background: var(--navy-deep); }
+  .cta .btn-primary:hover { background: var(--navy); }
+
+  /* FOOTER */
+  footer { background: var(--navy-deep); color: #aeb9c6; text-align: center; padding: 44px 28px; font-size: 0.92rem; }
+  footer strong { color: #fff; font-family: Georgia, serif; font-size: 1.15rem; }
+  .disclaimer { margin-top: 22px; padding-top: 20px; border-top: 1px solid #24364c;
+    color: #7e8b9b; font-size: 0.82rem; max-width: 64ch; margin-left: auto; margin-right: auto; }
+
+  @media (max-width: 820px) {
+    .nav-links { display: none; }
+    header h1 { font-size: 2.1rem; }
+    .story-grid { grid-template-columns: 1fr; gap: 28px; }
+    .services { grid-template-columns: 1fr; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .trust { gap: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">Prestige <span>Plumbing</span></div>
+  <div class="nav-links">
+    <a href="#story">About</a>
+    <a href="#services">Services</a>
+    <a href="#reviews">Reviews</a>
+    <a href="tel:+16305571517" class="nav-call">(630) 557-1517</a>
+  </div>
+</nav>
+
+<header>
+  <div class="eyebrow">North Aurora · Since 1989</div>
+  <h1>The plumber North Aurora has trusted for 35 years.</h1>
+  <p class="sub">Family-run plumbing, heating &amp; cooling — repairs, replacements, and maintenance done right the first time. No call centers. No upselling. Just honest work.</p>
+  <div class="rating-line">
+    <span class="stars">★★★★★</span>
+    <span>4.5 from 154 Google reviews</span>
+  </div>
+  <div class="hero-btns">
+    <a href="tel:+16305571517" class="btn-primary">Call (630) 557-1517</a>
+    <a href="#services" class="btn-ghost">See what we fix</a>
+  </div>
+</header>
+
+<div class="trust">
+  <div><strong>35+</strong>years in business</div>
+  <div><strong>24/7</strong>open every day</div>
+  <div><strong>154</strong>5-star-rated reviews</div>
+  <div><strong>Local</strong>North Aurora based</div>
+</div>
+
+<section id="story">
+  <div class="wrap story-grid">
+    <div>
+      <div class="section-eyebrow">Who we are</div>
+      <h2>Three decades of doing it the right way.</h2>
+      <p class="lead">Prestige was founded in North Aurora in 1989. Through the boom years we built and serviced thousands of homes across the Fox Valley — and today we run lean and focused, specializing in the maintenance, repair, and replacement work that keeps your home running.</p>
+      <p class="lead">When you call Prestige, you reach people who have been doing this for a generation. We show up when we say we will, explain your options in plain language, and stand behind the work.</p>
+    </div>
+    <div class="story-card">
+      <h3>What that means for you</h3>
+      <p>A smaller, owner-led team means the person who answers the phone is the person accountable for the job. You won't be passed around — and you won't be sold something you don't need.</p>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-eyebrow">What we do</div>
+    <h2>Plumbing, heating &amp; cooling — under one roof.</h2>
+    <p class="lead">From a leaking water heater at 6am to a full system replacement, here's where homeowners call us most.</p>
+    <div class="services">
+      <div class="svc">
+        <div class="icon">♨</div>
+        <h3>Water Heaters</h3>
+        <p>Repair, replacement, and same-day installs — including high-efficiency and tankless units, with parts warrantied.</p>
+      </div>
+      <div class="svc">
+        <div class="icon">⚙</div>
+        <h3>Plumbing Repairs</h3>
+        <p>Leaks, valves, faucets, fixtures, and shut-offs. Fast diagnosis and a clear price before any work begins.</p>
+      </div>
+      <div class="svc">
+        <div class="icon">❄</div>
+        <h3>Heating &amp; Cooling</h3>
+        <p>Furnace and AC service, tune-ups, and full HVAC replacements to keep your home comfortable year-round.</p>
+      </div>
+      <div class="svc">
+        <div class="icon">🛠</div>
+        <h3>Emergency Service</h3>
+        <p>Open 24 hours. When something fails at the worst time, a real Prestige technician is on the way.</p>
+      </div>
+      <div class="svc">
+        <div class="icon">🏠</div>
+        <h3>Maintenance Plans</h3>
+        <p>Seasonal checks that catch small problems before they become expensive ones. Built for long-term homeowners.</p>
+      </div>
+      <div class="svc">
+        <div class="icon">✓</div>
+        <h3>Honest Estimates</h3>
+        <p>Up-front pricing and straight answers. We tell you what needs fixing now and what can safely wait.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="section-eyebrow" style="color:var(--copper-light)">What neighbors say</div>
+    <h2>154 reviews. 4.5 stars. Decades of repeat customers.</h2>
+    <p class="lead">A few words from real Prestige customers in the North Aurora area.</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <span class="stars">★★★★★</span>
+        <p>"We woke up the first day in our new home to find the water heater wasn't working. We weren't expecting to find someone on the weekend, but Mark answered right away, was prompt, and had everything needed to finish the job."</p>
+        <div class="reviewer">
+          <div class="avatar">M</div>
+          <div><div class="name">Google Customer</div><div class="meta">Water heater install · Google review</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <span class="stars">★★★★★</span>
+        <p>"Five years ago Prestige installed two water heaters in my home. Today one wouldn't keep the pilot going. Called them, they came out, fixed it in 30 minutes. Parts still under warranty. Courteous, fast, knowledgeable work."</p>
+        <div class="reviewer">
+          <div class="avatar">G</div>
+          <div><div class="name">Google Customer</div><div class="meta">Repeat customer · Google review</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <span class="stars">★★★★★</span>
+        <p>"I have been a customer for the past 20 years and have never had a complaint. Today I needed immediate help and there they were within the hour. The work is always neat and efficient — quality in every job no matter how small."</p>
+        <div class="reviewer">
+          <div class="avatar">L</div>
+          <div><div class="name">Google Customer</div><div class="meta">20-year customer · Google review</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <span class="stars">★★★★★</span>
+        <p>"Quick service with good explanations and options presented. Terrific service and great to work with too."</p>
+        <div class="reviewer">
+          <div class="avatar">K</div>
+          <div><div class="name">Google Customer</div><div class="meta">Google review</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="cta">
+    <h2>Need a plumber today?</h2>
+    <p>We're open 24 hours, based right here in North Aurora at 11 John St. One call gets you a real Prestige technician — not a call center.</p>
+    <a href="tel:+16305571517" class="btn-primary">Call (630) 557-1517</a>
+  </div>
+</section>
+
+<footer>
+  <strong>Prestige Plumbing, Heating &amp; Cooling</strong><br>
+  11 John St Ste A, North Aurora, IL 60542 · Open 24 hours · (630) 557-1517<br>
+  Serving North Aurora, Aurora &amp; the Fox Valley since 1989
+  <div class="disclaimer">
+    This is a free concept demo built from this business's public Google reviews and listing information — it is not the company's official website and is not affiliated with or endorsed by the business. Created by VS Digital Ventures to illustrate a potential web presence.
+  </div>
+</footer>
+
+</body>
+</html>

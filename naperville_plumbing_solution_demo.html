@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naperville Plumbing Solution | Naperville Plumber</title>
+<style>
+  :root{
+    --ink:#0F1B2D;
+    --steel:#1F3A5F;
+    --amber:#E8A33D;
+    --paper:#F7F4EC;
+    --green:#3E7A4D;
+    --line:#D8D2C2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Helvetica Neue',Arial,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.5;
+  }
+  h1,h2,h3{
+    font-family:'Arial Black',Arial,sans-serif;
+    letter-spacing:-0.01em;
+    text-transform:uppercase;
+  }
+
+  /* ===== EMERGENCY TICKER ===== */
+  .ticker{
+    background:var(--ink);
+    color:var(--paper);
+    text-align:center;
+    padding:9px 12px;
+    font-size:13px;
+    letter-spacing:.04em;
+    font-weight:600;
+  }
+  .ticker span{color:var(--amber);}
+
+  /* ===== HEADER ===== */
+  header{
+    background:var(--paper);
+    padding:18px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:3px solid var(--ink);
+  }
+  .logo{
+    font-size:22px;
+    font-weight:900;
+    letter-spacing:-0.02em;
+  }
+  .logo span{color:var(--steel);}
+  .call-btn{
+    background:var(--amber);
+    color:var(--ink);
+    padding:10px 20px;
+    border-radius:3px;
+    font-weight:800;
+    text-decoration:none;
+    font-size:14px;
+    white-space:nowrap;
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    background:var(--ink);
+    color:var(--paper);
+    padding:64px 6% 56px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    right:-80px;top:-80px;
+    width:340px;height:340px;
+    border:60px solid rgba(232,163,61,0.08);
+    border-radius:50%;
+  }
+  .eyebrow{
+    color:var(--amber);
+    font-weight:800;
+    font-size:13px;
+    letter-spacing:.12em;
+    margin-bottom:14px;
+  }
+  .hero h1{
+    font-size:clamp(34px,6vw,58px);
+    line-height:1.04;
+    max-width:720px;
+    margin-bottom:18px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--amber);
+  }
+  .hero p{
+    max-width:560px;
+    font-size:18px;
+    color:#D7DCE2;
+    margin-bottom:30px;
+  }
+  .hero-actions{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .btn-primary{
+    background:var(--amber);
+    color:var(--ink);
+    padding:16px 28px;
+    border-radius:3px;
+    font-weight:800;
+    font-size:16px;
+    text-decoration:none;
+  }
+  .btn-secondary{
+    border:2px solid #45576E;
+    color:var(--paper);
+    padding:16px 28px;
+    border-radius:3px;
+    font-weight:700;
+    font-size:16px;
+    text-decoration:none;
+  }
+  .trust-strip{
+    margin-top:38px;
+    display:flex;
+    gap:28px;
+    flex-wrap:wrap;
+    border-top:1px solid #2B3F58;
+    padding-top:22px;
+  }
+  .trust-item{font-size:14px;color:#AEB9C4;font-weight:600;}
+  .trust-item b{color:var(--paper);font-size:20px;display:block;font-weight:900;}
+
+  /* ===== SERVICES ===== */
+  .services{padding:64px 6%;}
+  .section-head{margin-bottom:36px;}
+  .section-tag{
+    color:var(--steel);
+    font-weight:800;
+    font-size:13px;
+    letter-spacing:.1em;
+    margin-bottom:8px;
+  }
+  .section-head h2{font-size:clamp(26px,4vw,36px);}
+  .service-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
+  }
+  .service-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:26px 22px;
+  }
+  .service-card .num{
+    color:var(--amber);
+    font-weight:900;
+    font-size:13px;
+    margin-bottom:10px;
+  }
+  .service-card h3{
+    font-size:17px;
+    text-transform:none;
+    margin-bottom:8px;
+  }
+  .service-card p{font-size:14px;color:#5B6470;}
+
+  /* ===== WHY CHOOSE US ===== */
+  .why{
+    background:var(--steel);
+    color:var(--paper);
+    padding:64px 6%;
+  }
+  .why .section-tag{color:var(--amber);}
+  .why-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:30px;
+    margin-top:30px;
+  }
+  .why-item h3{
+    font-size:16px;
+    margin-bottom:8px;
+    color:var(--amber);
+  }
+  .why-item p{font-size:14px;color:#D7DCE2;}
+
+  /* ===== TESTIMONIALS (signature: punched service-ticket cards) ===== */
+  .reviews{padding:64px 6%;}
+  .ticket-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:22px;
+    margin-top:32px;
+  }
+  .ticket{
+    background:#fff;
+    border:1px dashed var(--steel);
+    border-radius:4px;
+    padding:24px 22px 20px;
+    position:relative;
+  }
+  .ticket::before{
+    content:"";
+    position:absolute;
+    left:-9px;top:50%;
+    width:18px;height:18px;
+    background:var(--paper);
+    border:1px dashed var(--steel);
+    border-radius:50%;
+    transform:translateY(-50%);
+  }
+  .ticket::after{
+    content:"";
+    position:absolute;
+    right:-9px;top:50%;
+    width:18px;height:18px;
+    background:var(--paper);
+    border:1px dashed var(--steel);
+    border-radius:50%;
+    transform:translateY(-50%);
+  }
+  .stamp{
+    display:inline-block;
+    border:2px solid var(--green);
+    color:var(--green);
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:.06em;
+    padding:3px 8px;
+    border-radius:2px;
+    transform:rotate(-4deg);
+    margin-bottom:14px;
+  }
+  .ticket p.quote{
+    font-size:15px;
+    font-style:italic;
+    margin-bottom:14px;
+    color:var(--ink);
+  }
+  .ticket .stars{color:var(--amber);font-size:14px;margin-bottom:6px;}
+  .ticket .by{font-size:13px;font-weight:700;color:var(--steel);}
+
+  /* ===== CTA / CONTACT ===== */
+  .cta{
+    background:var(--ink);
+    color:var(--paper);
+    padding:70px 6%;
+    text-align:center;
+  }
+  .cta h2{font-size:clamp(26px,4vw,38px);margin-bottom:14px;}
+  .cta p{color:#AEB9C4;max-width:520px;margin:0 auto 30px;font-size:16px;}
+  .big-phone{
+    display:inline-block;
+    background:var(--amber);
+    color:var(--ink);
+    font-size:clamp(22px,4vw,32px);
+    font-weight:900;
+    padding:20px 40px;
+    border-radius:4px;
+    text-decoration:none;
+    letter-spacing:.01em;
+  }
+  .cta-sub{margin-top:18px;font-size:13px;color:#8C97A3;}
+
+  footer{
+    background:var(--paper);
+    text-align:center;
+    padding:24px;
+    font-size:13px;
+    color:#8C97A3;
+    border-top:1px solid var(--line);
+  }
+
+  @media (max-width:560px){
+    .hero-actions{flex-direction:column;}
+    .btn-primary,.btn-secondary{text-align:center;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="ticker">⚡ <span>OPEN 24/7</span> &nbsp;·&nbsp; SERVING Naperville &amp; SURROUNDING AREAS &nbsp;·&nbsp; CALL NOW: (331) 204-4627</div>
+
+  <header>
+    <div class="logo">NPS<span>.</span></div>
+    <a class="call-btn" href="tel:+13312044627">CALL (331) 204-4627</a>
+  </header>
+
+  <section class="hero">
+    <div class="eyebrow">Naperville'S TOP-RATED PLUMBER</div>
+    <h1>Fast, Honest Plumbing<br>You Can Actually <em>Trust.</em></h1>
+    <p>Naperville Plumbing Solution has earned 18 five-star reviews in Naperville by showing up on time, doing the job right, and never overselling. When something breaks, we fix it — no runaround.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="tel:+13312044627">Call (331) 204-4627</a>
+      <a class="btn-secondary" href="#reviews">See What Customers Say</a>
+    </div>
+    <div class="trust-strip">
+      <div class="trust-item"><b>18+</b>5-Star Reviews</div>
+      <div class="trust-item"><b>24/7</b>Emergency Service</div>
+      <div class="trust-item"><b>5+ Yrs</b>Serving Naperville</div>
+      <div class="trust-item"><b>Licensed</b>&amp; Insured</div>
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="section-head">
+      <div class="section-tag">WHAT WE DO</div>
+      <h2>Plumbing Services in Naperville</h2>
+    </div>
+    <div class="service-grid">
+      <div class="service-card"><div class="num">01</div><h3>Emergency Repairs</h3><p>Burst pipes, leaks, and backups — handled fast, day or night.</p></div>
+      <div class="service-card"><div class="num">02</div><h3>Drain &amp; Sewer Cleaning</h3><p>Clogged drains and sewer lines cleared without the guesswork.</p></div>
+      <div class="service-card"><div class="num">03</div><h3>Water Heater Install &amp; Repair</h3><p>Traditional and tankless systems, installed right the first time.</p></div>
+      <div class="service-card"><div class="num">04</div><h3>Fixture &amp; Faucet Installation</h3><p>Sinks, toilets, and faucets installed cleanly with no surprises.</p></div>
+      <div class="service-card"><div class="num">05</div><h3>Leak Detection</h3><p>We find the source before it becomes a bigger, costlier problem.</p></div>
+      <div class="service-card"><div class="num">06</div><h3>General Plumbing Repair</h3><p>If it involves a pipe, we've probably already fixed one just like it.</p></div>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="section-head">
+      <div class="section-tag">WHY Naperville CHOOSES US</div>
+      <h2>Reviews Built This Reputation.<br>Not Ads.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item"><h3>We Show Up On Time</h3><p>Customers consistently mention punctuality — no waiting around all day for a window that never comes.</p></div>
+      <div class="why-item"><h3>We Don't Oversell</h3><p>We explain what's actually wrong and what it actually costs — before any work starts.</p></div>
+      <div class="why-item"><h3>We Stand Behind Our Work</h3><p>If it's not right, we come back and make it right. That's the whole policy.</p></div>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <div class="section-head">
+      <div class="section-tag">VERIFIED CUSTOMERS</div>
+      <h2>Straight From Naperville Homeowners</h2>
+    </div>
+    <div class="ticket-grid">
+      <div class="ticket">
+        <div class="stamp">VERIFIED ✓</div>
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Without a doubt, I would suggest him to anyone in need of plumbing needs."</p>
+        <div class="by">— A., Google Review</div>
+      </div>
+      <div class="ticket">
+        <div class="stamp">VERIFIED ✓</div>
+        <div class="stars">★★★★★</div>
+        <p class="quote">"When you examine the basement plumbing, he provides a clear quote before doing any work."</p>
+        <div class="by">— S., Google Review</div>
+      </div>
+      <div class="ticket">
+        <div class="stamp">VERIFIED ✓</div>
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Showed up on time, explained everything clearly, and fixed it right the first time."</p>
+        <div class="by">— M., Google Review</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Need A Plumber In Naperville Today?</h2>
+    <p>Call now and talk to a real person — no call centers, no waiting on hold.</p>
+    <a class="big-phone" href="tel:+13312044627">📞 (331) 204-4627</a>
+    <div class="cta-sub">Naperville Plumbing Solution &nbsp;·&nbsp; Serving Naperville &amp; Surrounding Areas &nbsp;·&nbsp; Open 24/7</div>
+  </section>
+
+  <footer>
+    © Naperville Plumbing Solution. Demo site built by VS Digital Ventures.
+  </footer>
+
+</body>
+</html>

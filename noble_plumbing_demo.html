@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noble Plumbing & Sewer | Bolingbrook, IL</title>
+<style>
+  :root{
+    --navy:#0f2236;
+    --navy-deep:#081420;
+    --steel:#1f3a52;
+    --copper:#c1652f;
+    --copper-light:#e08a4f;
+    --bone:#f4efe6;
+    --slate:#5b6b78;
+    --line:#d8d2c4;
+    --good:#2e7d4f;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    background:var(--bone);
+    color:var(--navy-deep);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Georgia', 'Times New Roman', serif; font-weight:700; letter-spacing:-0.01em;}
+
+  /* ---- Top emergency strip ---- */
+  .strip{
+    background:var(--navy-deep);
+    color:var(--bone);
+    text-align:center;
+    padding:9px 16px;
+    font-size:13px;
+    letter-spacing:0.04em;
+  }
+  .strip strong{color:var(--copper-light);}
+  .strip a{color:var(--bone); text-decoration:underline;}
+
+  /* ---- Header ---- */
+  header{
+    background:var(--navy);
+    padding:22px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .logo{display:flex; align-items:center; gap:12px;}
+  .logo-mark{
+    width:42px; height:42px;
+    border:2px solid var(--copper-light);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--copper-light);
+    font-family:Georgia, serif;
+    font-weight:700;
+    font-size:18px;
+  }
+  .logo-text{color:var(--bone);}
+  .logo-text .name{font-family:Georgia, serif; font-size:19px; font-weight:700; line-height:1.1;}
+  .logo-text .sub{font-size:11px; letter-spacing:0.12em; color:#9fb3c2; text-transform:uppercase;}
+  .call-now{
+    background:var(--copper);
+    color:var(--bone);
+    padding:11px 22px;
+    border-radius:3px;
+    font-weight:700;
+    font-size:15px;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+
+  /* ---- Hero ---- */
+  .hero{
+    background:linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color:var(--bone);
+    padding:64px 6% 56px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    right:-60px; top:-60px;
+    width:320px; height:320px;
+    border:1px solid rgba(255,255,255,0.06);
+    border-radius:50%;
+  }
+  .hero-inner{max-width:680px; position:relative; z-index:2;}
+  .eyebrow{
+    color:var(--copper-light);
+    font-size:13px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    font-weight:700;
+    margin-bottom:14px;
+  }
+  .hero h1{font-size:40px; line-height:1.15; margin-bottom:16px;}
+  .hero p.lead{font-size:17px; color:#c7d3dc; line-height:1.6; max-width:540px; margin-bottom:28px;}
+  .hero-cta{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:34px;}
+  .btn-primary{
+    background:var(--copper);
+    color:var(--bone);
+    padding:14px 26px;
+    border-radius:3px;
+    font-weight:700;
+    text-decoration:none;
+    font-size:15px;
+  }
+  .btn-secondary{
+    border:1px solid rgba(255,255,255,0.35);
+    color:var(--bone);
+    padding:14px 26px;
+    border-radius:3px;
+    font-weight:700;
+    text-decoration:none;
+    font-size:15px;
+  }
+  .trust-row{display:flex; gap:28px; flex-wrap:wrap; font-size:14px; color:#aebccb;}
+  .trust-row strong{color:var(--bone); display:block; font-size:22px; font-family:Georgia,serif;}
+
+  /* ---- Reviews band ---- */
+  .reviews-band{
+    background:var(--bone);
+    border-bottom:1px solid var(--line);
+    padding:30px 6%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+    flex-wrap:wrap;
+    text-align:center;
+  }
+  .stars{color:var(--copper); font-size:20px; letter-spacing:2px;}
+  .reviews-band .score{font-family:Georgia,serif; font-weight:700; font-size:20px;}
+  .reviews-band .count{color:var(--slate); font-size:14px;}
+
+  /* ---- Services ---- */
+  .section{padding:64px 6%; max-width:1080px; margin:0 auto;}
+  .section-head{margin-bottom:38px; max-width:560px;}
+  .section-head .tag{color:var(--copper); font-size:13px; letter-spacing:0.12em; text-transform:uppercase; font-weight:700; margin-bottom:10px;}
+  .section-head h2{font-size:30px; color:var(--navy-deep);}
+  .services-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .service-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-top:3px solid var(--copper);
+    padding:26px 22px;
+  }
+  .service-card h3{font-size:18px; color:var(--navy-deep); margin-bottom:8px;}
+  .service-card p{font-size:14px; color:var(--slate); line-height:1.6;}
+
+  /* ---- Why / pipe-line signature divider ---- */
+  .pipeline{
+    background:var(--navy);
+    padding:56px 6%;
+    color:var(--bone);
+  }
+  .pipeline-inner{max-width:1080px; margin:0 auto;}
+  .pipeline h2{font-size:26px; margin-bottom:36px; text-align:center;}
+  .pipe-track{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    position:relative;
+    gap:10px;
+  }
+  .pipe-track::before{
+    content:"";
+    position:absolute;
+    top:13px; left:0; right:0;
+    height:3px;
+    background:repeating-linear-gradient(90deg, var(--copper) 0 14px, transparent 14px 20px);
+  }
+  .pipe-step{flex:1; text-align:center; position:relative;}
+  .pipe-joint{
+    width:26px; height:26px;
+    background:var(--copper);
+    border:3px solid var(--navy);
+    border-radius:50%;
+    margin:0 auto 14px;
+    position:relative;
+    z-index:2;
+  }
+  .pipe-step h4{font-size:15px; margin-bottom:6px; color:var(--bone);}
+  .pipe-step p{font-size:13px; color:#aebccb; line-height:1.5; max-width:170px; margin:0 auto;}
+
+  /* ---- Testimonial ---- */
+  .testimonial{
+    background:var(--bone);
+    padding:60px 6%;
+    text-align:center;
+  }
+  .testimonial blockquote{
+    font-family:Georgia,serif;
+    font-size:24px;
+    line-height:1.45;
+    max-width:680px;
+    margin:0 auto 18px;
+    color:var(--navy-deep);
+  }
+  .testimonial blockquote::before{content:"“"; color:var(--copper);}
+  .testimonial blockquote::after{content:"”"; color:var(--copper);}
+  .testimonial cite{font-size:14px; color:var(--slate); font-style:normal;}
+
+  /* ---- Map / location ---- */
+  .location{
+    padding:56px 6%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    max-width:1080px;
+    margin:0 auto;
+    align-items:center;
+  }
+  .location-info h2{font-size:26px; margin-bottom:14px; color:var(--navy-deep);}
+  .location-info p{color:var(--slate); margin-bottom:18px; line-height:1.6;}
+  .info-line{display:flex; gap:10px; margin-bottom:10px; font-size:14px;}
+  .info-line .label{color:var(--copper); font-weight:700; min-width:60px;}
+  .map-placeholder{
+    background:#e3e8df;
+    border:1px solid var(--line);
+    height:240px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--slate);
+    font-size:13px;
+    position:relative;
+  }
+  .map-pin{
+    position:absolute;
+    top:50%; left:50%;
+    transform:translate(-50%,-100%);
+    width:0; height:0;
+    border-left:10px solid transparent;
+    border-right:10px solid transparent;
+    border-top:16px solid var(--copper);
+  }
+
+  /* ---- Final CTA ---- */
+  .final-cta{
+    background:var(--navy-deep);
+    color:var(--bone);
+    padding:56px 6%;
+    text-align:center;
+  }
+  .final-cta h2{font-size:28px; margin-bottom:12px;}
+  .final-cta p{color:#aebccb; margin-bottom:26px;}
+
+  footer{
+    background:var(--navy-deep);
+    border-top:1px solid var(--steel);
+    color:#7d8e9a;
+    text-align:center;
+    padding:22px 6%;
+    font-size:12px;
+  }
+
+  @media (max-width: 760px){
+    .services-grid{grid-template-columns:1fr;}
+    .location{grid-template-columns:1fr;}
+    .hero h1{font-size:30px;}
+    .pipe-track{flex-direction:column; gap:24px;}
+    .pipe-track::before{display:none;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="strip">
+    <strong>24-HOUR EMERGENCY PLUMBING</strong> — We treat you like royalty. Call now: <a href="tel:6307547252">(630) 754-7252</a>
+  </div>
+
+  <header>
+    <div class="logo">
+      <div class="logo-mark">N</div>
+      <div class="logo-text">
+        <div class="name">Noble Plumbing &amp; Sewer</div>
+        <div class="sub">Bolingbrook, Illinois</div>
+      </div>
+    </div>
+    <a href="tel:6307547252" class="call-now">Call (630) 754-7252</a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Open 24 Hours · Bolingbrook, IL</div>
+      <h1>Honest plumbing repairs from a crew Bolingbrook actually trusts.</h1>
+      <p class="lead">Reliable, transparent residential plumbing and sewer service — repairs, appliance moves, and emergency calls, day or night.</p>
+      <div class="hero-cta">
+        <a href="tel:6307547252" class="btn-primary">Call Now For Help</a>
+        <a href="#services" class="btn-secondary">See Our Services</a>
+      </div>
+      <div class="trust-row">
+        <div><strong>4.9 ★</strong>Google rating</div>
+        <div><strong>97</strong>Google reviews</div>
+        <div><strong>24/7</strong>Emergency dispatch</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="reviews-band">
+    <span class="stars">★★★★★</span>
+    <span class="score">4.9 out of 5</span>
+    <span class="count">— based on 97 Google reviews from Bolingbrook homeowners</span>
+  </div>
+
+  <section class="section" id="services">
+    <div class="section-head">
+      <div class="tag">What We Handle</div>
+      <h2>Residential plumbing &amp; sewer, done right the first time.</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Emergency Repairs</h3>
+        <p>Burst pipes, leaks, and backups don't wait for business hours — neither do we. Same-day response, 24 hours a day.</p>
+      </div>
+      <div class="service-card">
+        <h3>Sewer Line Service</h3>
+        <p>Inspections, clearing, and repair for sewer lines — caught early before they become a bigger, costlier problem.</p>
+      </div>
+      <div class="service-card">
+        <h3>Appliance Moves &amp; Hookups</h3>
+        <p>Washers, dishwashers, water heaters — disconnected, moved, and reconnected safely and to code.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pipeline">
+    <div class="pipeline-inner">
+      <h2>What happens when you call</h2>
+      <div class="pipe-track">
+        <div class="pipe-step">
+          <div class="pipe-joint"></div>
+          <h4>You call</h4>
+          <p>(630) 754-7252 — answered live, any hour.</p>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-joint"></div>
+          <h4>We diagnose</h4>
+          <p>Straight answer on what's wrong and what it costs — no surprise fees.</p>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-joint"></div>
+          <h4>We fix it</h4>
+          <p>Repaired same visit whenever possible, by a licensed local crew.</p>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-joint"></div>
+          <h4>You're covered</h4>
+          <p>Workmanship backed — that's why Bolingbrook keeps calling us back.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonial">
+    <blockquote>Noble Plumbing showed up fast, explained everything clearly, and treated our home like it mattered. Exactly what you want from a 24-hour call.</blockquote>
+    <cite>— Verified Google Review, Bolingbrook, IL</cite>
+  </section>
+
+  <section class="location">
+    <div class="location-info">
+      <h2>Serving Bolingbrook &amp; nearby</h2>
+      <p>Based on Hanburg Ln, minutes from Lindsey Ln and the surrounding neighborhoods — fast response across Bolingbrook.</p>
+      <div class="info-line"><span class="label">Address</span><span>245 Hanburg Ln, Bolingbrook, IL 60440</span></div>
+      <div class="info-line"><span class="label">Phone</span><span>(630) 754-7252</span></div>
+      <div class="info-line"><span class="label">Hours</span><span>Open 24 hours</span></div>
+    </div>
+    <div class="map-placeholder">
+      <div class="map-pin"></div>
+      Map preview — Hanburg Ln, Bolingbrook, IL
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <h2>Got a plumbing problem right now?</h2>
+    <p>Live answer, 24 hours a day. Bolingbrook's 4.9-star plumber is one call away.</p>
+    <a href="tel:6307547252" class="btn-primary">Call (630) 754-7252</a>
+  </section>
+
+  <footer>
+    © Noble Plumbing &amp; Sewer — Bolingbrook, IL · Demo site preview
+  </footer>
+
+</body>
+</html>
