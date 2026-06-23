@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rhodes Plumbing — Crown Point, IN</title>
+<style>
+  :root {
+    --base: #21314a;
+    --base-deep: #16223a;
+    --accent: #e3a312;
+    --accent-light: #f2b937;
+    --cream: #f5f3ee;
+    --ink: #1c2733;
+    --muted: #5c6670;
+    --line: #e1ddd2;
+    --star: #e3a312;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; color: var(--ink); background: var(--cream); line-height: 1.6; }
+  h1, h2, h3 { font-family: Georgia, 'Times New Roman', serif; line-height: 1.15; letter-spacing: -0.01em; }
+
+  nav { position: sticky; top: 0; z-index: 50; background: var(--base-deep); display: flex; align-items: center; justify-content: space-between; padding: 14px 28px; }
+  .brand { color: #fff; font-family: Georgia, serif; font-size: 1.25rem; font-weight: bold; letter-spacing: 0.5px; }
+  .brand span { color: var(--accent-light); }
+  .nav-links { display: flex; gap: 26px; align-items: center; }
+  .nav-links a { color: #ccd5e2; text-decoration: none; font-size: 0.92rem; }
+  .nav-links a:hover { color: #fff; }
+  .nav-call { background: var(--accent); color: #1c1305 !important; padding: 9px 18px; border-radius: 6px; font-weight: 700; }
+  .nav-call:hover { background: var(--accent-light); }
+
+  header { background: linear-gradient(rgba(22,34,58,0.92), rgba(22,34,58,0.93)), radial-gradient(circle at 80% 20%, #324a72 0%, #16223a 60%); color: #fff; padding: 90px 28px 80px; text-align: center; }
+  .eyebrow { text-transform: uppercase; letter-spacing: 3px; font-size: 0.78rem; color: var(--accent-light); font-weight: 600; margin-bottom: 18px; }
+  header h1 { font-size: 3rem; margin-bottom: 18px; max-width: 18ch; margin-left: auto; margin-right: auto; }
+  header p.sub { font-size: 1.2rem; color: #c3cddd; max-width: 56ch; margin: 0 auto 14px; }
+  .rating-line { display: inline-flex; align-items: center; gap: 10px; margin: 22px 0 30px; font-size: 1.05rem; color: #e5ebf3; }
+  .rating-line .stars { color: var(--star); letter-spacing: 2px; font-size: 1.15rem; }
+  .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { background: var(--accent); color: #1c1305; text-decoration: none; padding: 16px 32px; border-radius: 8px; font-weight: 700; font-size: 1.05rem; display: inline-block; transition: transform .15s, background .15s; }
+  .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
+  .btn-ghost { background: transparent; color: #fff; text-decoration: none; padding: 16px 32px; border-radius: 8px; font-weight: 600; font-size: 1.05rem; border: 1.5px solid rgba(255,255,255,0.4); display: inline-block; }
+  .btn-ghost:hover { border-color: #fff; }
+
+  .trust { background: var(--base); color: #ccd6e3; display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; padding: 22px 28px; font-size: 0.95rem; text-align: center; }
+  .trust strong { color: #fff; display: block; font-size: 1.5rem; font-family: Georgia, serif; }
+
+  section { padding: 72px 28px; }
+  .wrap { max-width: 1040px; margin: 0 auto; }
+  .section-eyebrow { text-transform: uppercase; letter-spacing: 2.5px; font-size: 0.75rem; color: #b8830e; font-weight: 700; margin-bottom: 12px; }
+  h2 { font-size: 2.2rem; margin-bottom: 16px; color: var(--base); }
+  .lead { font-size: 1.1rem; color: #44505c; max-width: 64ch; margin-bottom: 10px; }
+
+  #story { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .story-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: center; }
+  .story-card { background: var(--cream); border: 1px solid var(--line); border-radius: 12px; padding: 30px; border-left: 5px solid var(--accent); }
+  .story-card h3 { color: var(--base); font-size: 1.3rem; margin-bottom: 10px; }
+  .story-card p { color: #4d5862; font-size: 1.02rem; }
+
+  .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 36px; }
+  .svc { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 26px; transition: transform .15s, box-shadow .15s; }
+  .svc:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(33,49,74,0.12); }
+  .svc .icon { width: 44px; height: 44px; border-radius: 10px; background: var(--base); color: var(--accent-light); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 16px; }
+  .svc h3 { font-size: 1.15rem; color: var(--base); margin-bottom: 8px; }
+  .svc p { color: #5c6670; font-size: 0.96rem; }
+
+  #reviews { background: var(--base-deep); color: #fff; }
+  #reviews h2 { color: #fff; }
+  #reviews .lead { color: #b6c2d4; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-top: 38px; }
+  .review-card { background: #1e2f4c; border: 1px solid #2c4368; border-radius: 12px; padding: 26px; }
+  .review-card .stars { color: var(--star); letter-spacing: 2px; font-size: 1.05rem; }
+  .review-card p { color: #dde4ef; margin: 12px 0 18px; font-size: 1rem; font-style: italic; }
+  .reviewer { display: flex; align-items: center; gap: 12px; }
+  .avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--accent); color: #1c1305; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem; }
+  .reviewer .name { font-weight: 600; color: #fff; font-size: 0.95rem; }
+  .reviewer .meta { color: #899ab2; font-size: 0.82rem; }
+
+  #contact { background: var(--accent); }
+  .cta { text-align: center; max-width: 60ch; margin: 0 auto; color: #1c1305; }
+  .cta h2 { color: #1c1305; font-size: 2.4rem; margin-bottom: 14px; }
+  .cta p { font-size: 1.12rem; margin-bottom: 28px; color: #3a2c0c; }
+  .cta .btn-primary { background: var(--base-deep); color: #fff; }
+  .cta .btn-primary:hover { background: var(--base); }
+
+  footer { background: var(--base-deep); color: #a6b4c8; text-align: center; padding: 44px 28px; font-size: 0.92rem; }
+  footer strong { color: #fff; font-family: Georgia, serif; font-size: 1.15rem; }
+  .disclaimer { margin-top: 22px; padding-top: 20px; border-top: 1px solid #243854; color: #7b8aa2; font-size: 0.82rem; max-width: 64ch; margin-left: auto; margin-right: auto; }
+
+  @media (max-width: 820px) {
+    .nav-links { display: none; }
+    header h1 { font-size: 2.1rem; }
+    .story-grid { grid-template-columns: 1fr; gap: 28px; }
+    .services { grid-template-columns: 1fr; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .trust { gap: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">Rhodes <span>Plumbing</span></div>
+  <div class="nav-links">
+    <a href="#story">About</a>
+    <a href="#services">Services</a>
+    <a href="#reviews">Reviews</a>
+    <a href="tel:+12196620107" class="nav-call">(219) 662-0107</a>
+  </div>
+</nav>
+
+<header>
+  <div class="eyebrow">Crown Point, Indiana</div>
+  <h1>Residential, commercial &amp; industrial plumbing done right.</h1>
+  <p class="sub">A local, professional plumbing company serving Crown Point and Northwest Indiana — from home repairs to commercial installs, backflow testing, and water heater replacement. High integrity, competitive pricing, quality work.</p>
+  <div class="rating-line">
+    <span class="stars">★★★★★</span>
+    <span>5.0 from 6 Google reviews</span>
+  </div>
+  <div class="hero-btns">
+    <a href="tel:+12196620107" class="btn-primary">Call (219) 662-0107</a>
+    <a href="#services" class="btn-ghost">See our services</a>
+  </div>
+</header>
+
+<div class="trust">
+  <div><strong>5.0★</strong>perfect rating</div>
+  <div><strong>3 types</strong>residential to industrial</div>
+  <div><strong>Certified</strong>backflow testing</div>
+  <div><strong>Local</strong>Crown Point based</div>
+</div>
+
+<section id="story">
+  <div class="wrap story-grid">
+    <div>
+      <div class="section-eyebrow">Who we are</div>
+      <h2>One team for home, business &amp; industrial plumbing.</h2>
+      <p class="lead">Rhodes Plumbing serves Crown Point and the surrounding Northwest Indiana area with full-service plumbing for residential, commercial, and industrial clients. Whether it's a leak at home, a build-out at your business, or required backflow testing, our team brings the same standard: professional work, fair pricing, and high integrity.</p>
+      <p class="lead">From a single faucet to a commercial installation, the job gets done cleanly, correctly, and on time.</p>
+    </div>
+    <div class="story-card">
+      <h3>What clients say</h3>
+      <p>"High integrity and a very solid company to work with — we highly recommend them." That reputation for professional, competitively-priced work is what keeps clients coming back across every type of job.</p>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-eyebrow">What we do</div>
+    <h2>Full-service plumbing for every property type.</h2>
+    <p class="lead">From homes to commercial buildings across Crown Point and Northwest Indiana.</p>
+    <div class="services">
+      <div class="svc"><div class="icon">🏠</div><h3>Residential</h3><p>Repairs, installs, and upgrades for homeowners — done cleanly and with respect for your home.</p></div>
+      <div class="svc"><div class="icon">🏢</div><h3>Commercial</h3><p>Plumbing installation and service for businesses, build-outs, and tenant spaces.</p></div>
+      <div class="svc"><div class="icon">🏭</div><h3>Industrial</h3><p>Large-scale and industrial plumbing handled by an experienced, professional team.</p></div>
+      <div class="svc"><div class="icon">🛡</div><h3>Backflow Testing</h3><p>Certified backflow testing and certification to keep your property safe and compliant.</p></div>
+      <div class="svc"><div class="icon">♨</div><h3>Water Heaters</h3><p>Water heater repair and replacement for homes and businesses, installed to code.</p></div>
+      <div class="svc"><div class="icon">✓</div><h3>Honest Pricing</h3><p>Competitive, transparent pricing with high integrity on every job, big or small.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="section-eyebrow" style="color:var(--accent-light)">What clients say</div>
+    <h2>5.0 stars across residential, commercial &amp; industrial.</h2>
+    <p class="lead">A few words from real Rhodes Plumbing clients in Northwest Indiana.</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <span class="stars">★★★★★</span>
+        <p>"We had Rhodes install plumbing for a new bathroom at our commercial building. The team did a great job, were very professional, and at a competitive price. High integrity and a very solid company to work with — we highly recommend them!"</p>
+        <div class="reviewer"><div class="avatar">G</div><div><div class="name">Google Customer</div><div class="meta">Commercial install · Google review</div></div></div>
+      </div>
+      <div class="review-card">
+        <span class="stars">★★★★★</span>
+        <p>"I had a gas leak and the gas had to be shut off. They came out quickly to repair the pipes that needed replacing. Everyone I interacted with was friendly, answered my questions, and made the whole process easy. Thank you!"</p>
+        <div class="reviewer"><div class="avatar">G</div><div><div class="name">Google Customer</div><div class="meta">Emergency repair · Google review</div></div></div>
+      </div>
+      <div class="review-card">
+        <span class="stars">★★★★★</span>
+        <p>"Professional plumbing all of the time."</p>
+        <div class="reviewer"><div class="avatar">G</div><div><div class="name">Google Customer</div><div class="meta">Google review</div></div></div>
+      </div>
+      <div class="review-card">
+        <span class="stars">★★★★★</span>
+        <p>"Reliable, professional, and fairly priced. They handled our job efficiently and the quality of work was excellent. Would absolutely use them again."</p>
+        <div class="reviewer"><div class="avatar">G</div><div><div class="name">Google Customer</div><div class="meta">Google review</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="cta">
+    <h2>Need a plumber in Northwest Indiana?</h2>
+    <p>Based in Crown Point and ready for residential, commercial, or industrial work. One call gets professional, high-integrity service.</p>
+    <a href="tel:+12196620107" class="btn-primary">Call (219) 662-0107</a>
+  </div>
+</section>
+
+<footer>
+  <strong>Rhodes Plumbing</strong><br>
+  750 Industrial Blvd Unit B, Crown Point, IN 46307 · (219) 662-0107<br>
+  Residential · Commercial · Industrial · Backflow Testing
+  <div class="disclaimer">
+    This is a free concept demo built from this business's public Google reviews and listing information — it is not the company's official website and is not affiliated with or endorsed by the business. Created by VS Digital Ventures to illustrate a potential web presence.
+  </div>
+</footer>
+
+</body>
+</html>
